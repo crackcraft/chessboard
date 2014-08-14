@@ -1,0 +1,31 @@
+chessboard
+==========
+
+Joomla plug-in for integration of chessboard.js into article text.
+Inspired by EmbedChessboard.
+
+To use, you have to insert in the article:
+
+  [chessboard {attributes}]
+    {configuration}
+  [/chessboard]
+
+Where
+
+    {attributes} are any allowed html attributes of DIV element (except ID)
+      http://www.w3schools.com/tags/ref_standardattributes.asp
+      
+    {configuration} is a valid configuration of chessboard.js instance
+      http://chessboardjs.com/docs
+      
+Example
+
+  [chessboard class="myboard" style="width: 300px" ]
+    position: "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R",
+    orientation: "black",
+    showNotation: false
+  [/chessboard]
+
+Default set of attributes and configuration can be set in plug-in's configuration.
+The sets are merged with parameters, defined in article (and overridden in case of collision) 
+NB! All html tags are stripped out from the parameters defined in article.
