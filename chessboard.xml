@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="0.1" type="plugin" group="content">      
+	<name>Content - chessboard</name>
+	<creationDate>August 2014</creationDate>
+	<version>0.1</version>
+	<author>crackcraft</author>
+	<copyright>crackcraft.net</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>crackcraft@gmail.com</authorEmail>
+	<authorUrl>crackcraft.net</authorUrl>
+	<description>CHESSBOARD_DESC</description>
+	<files>
+		<filename plugin="chessboard">chessboard.php</filename>
+		<folder>css</folder>	 
+		<folder>languages</folder>
+		<folder>img</folder>
+		<folder>js</folder>			
+	</files>
+	<languages>
+		<language tag="en-GB">languages/en-GB/en-GB.plg_content_chessboard.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="tagid" type="text" default="chessboard" label="Tag ID prefix:" class="required" description="Prefix for board DIV id"/>
+				<field name="attrs" type="textarea" cols="200" rows="5" default='class="chessboard" style="width:300px"' label="Default tag attributes: " description="Default attributes for board DIV" />
+				<field name="config" type="textarea" cols="200" rows="5" default='pieceTheme: "/plugins/content/chessboard/img/{piece}.png", showErrors: false' label="Default chessboard.js config:" description="Default configuration for chessboard.js" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
