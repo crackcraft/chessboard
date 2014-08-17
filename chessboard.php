@@ -95,7 +95,7 @@ class plgContentChessBoard extends JPlugin {
 			$document= &JFactory::getDocument();
 			$document->addStyleSheet( $pluginbase.'css/chessboard-0.3.0.min.css' );
 			$document->addScript($pluginbase.'js/chessboard-0.3.0.min.js');
-			$tagid = $this->params->def('tagid');
+			$tagid_prefix = $this->params->def('tagid');
 			$default_attrs = $this->parseAttrs($this->params->def('attrs'));
 			$default_config = $this->params->def('config');
 			$document->addScriptDeclaration('$ = jQuery.noConflict();');
@@ -104,8 +104,9 @@ class plgContentChessBoard extends JPlugin {
 				$attrs = array_merge($default_attrs, $this->parseAttrs($this->htmlToText($matches[1][$i])));
 				$config = $this->htmlToText($matches[2][$i]);
 				$replace[$i] = $regex;
-				$boards[$i] = '<div id="'.$tagid.$i.'"'.$this->formatAttrs($attrs).'></div>';
-				$document->addScriptDeclaration('$(function() { new ChessBoard("'.$tagid.$i.'", $.extend({'.$default_config.'},{'.$config.'})); });');
+				$tagid = uniqid($tagid_prefix);
+				$boards[$i] = '<div id="'.$tagid.'"'.$this->formatAttrs($attrs).'></div>';
+				$document->addScriptDeclaration('$(function() { new ChessBoard("'.$tagid.'", $.extend({'.$default_config.'},{'.$config.'})); });');
 			}
         
 			$row->text = preg_replace( $replace, $boards, $row->text );
